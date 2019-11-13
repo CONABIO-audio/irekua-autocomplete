@@ -129,3 +129,18 @@ class UserAutocomplete(autocomplete.Select2QuerySetView):
 
     def get_result_label(self, item):
         return item.email
+
+
+class LocalityAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        qs = irekua_models.Locality.objects.all()
+
+        if self.q:
+            qs = qs.filter(name__istartswith=self.q)
+
+        return qs
+
+    def get_result_label(self, item):
+        return '{name} ({type})'.format(
+            name=item.name,
+            type=item.locality_type)

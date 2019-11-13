@@ -50,6 +50,10 @@ urlpatterns = [
         views.UserAutocomplete.as_view(),
         name='users_autocomplete'),
     path(
+        'localities/',
+        views.LocalityAutocomplete.as_view(),
+        name='locality_autocomplete'),
+    path(
         'event_type/<pk>/terms/',
         TermListView.as_view(),
         name='term_autocomplete')
