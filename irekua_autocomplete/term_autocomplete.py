@@ -89,7 +89,7 @@ class TermFilter(FilterSet):
         model = models.Term
         fields = {
             'value': ['icontains'],
-            'term_type': ['exact']
+            'term_type__name': ['exact']
         }
 
 
