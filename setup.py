@@ -19,10 +19,10 @@ setup(
     author='CONABIO, Gustavo Everardo Robredo Esquivelzeta, Santiago Martínez Balvanera',
     author_email='erobredo@conabio.gob.mx, smartinez@conabio.gob.mx',
     install_requires=[
-        'irekua_database',
-        'djangorestframework',
+        'irekua-database',
         'django-filter',
         'django-autocomplete-light',
+        'djangorestframework',
     ],
     classifiers=[
         'Environment :: Web Environment',
