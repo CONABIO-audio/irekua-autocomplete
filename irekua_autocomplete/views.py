@@ -144,3 +144,19 @@ class LocalityAutocomplete(autocomplete.Select2QuerySetView):
         return '{name} ({type})'.format(
             name=item.name,
             type=item.locality_type)
+
+
+class SiteDescriptorAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        qs = irekua_models.SiteDescriptor.objects.all()
+
+        if self.q:
+            qs = qs.filter(value__icontains=self.q)
+
+        if 'type' in self.request.GET:
+            qs = qs.filter(descriptor_type=self.request.GET['type'])
+
+        return qs
+
+    def get_result_label(self, item):
+        return item.value

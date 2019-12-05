@@ -52,7 +52,11 @@ urlpatterns = [
     path(
         'localities/',
         views.LocalityAutocomplete.as_view(),
-        name='locality_autocomplete'),
+        name='localities_autocomplete'),
+    path(
+        'site_descriptors/',
+        views.SiteDescriptorAutocomplete.as_view(),
+        name='site_descriptors_autocomplete'),
     path(
         'event_type/<pk>/terms/',
         TermListView.as_view(),
