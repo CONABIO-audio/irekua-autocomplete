@@ -1,5 +1,5 @@
 attrs==19.3.0
-Django==2.2.7
+Django==2.2.8
 django-autocomplete-light==3.4.1
 django-filter==2.2.0
 djangorestframework==3.10.3
