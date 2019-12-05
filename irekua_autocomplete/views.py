@@ -141,9 +141,13 @@ class LocalityAutocomplete(autocomplete.Select2QuerySetView):
         return qs
 
     def get_result_label(self, item):
-        return '{name} ({type})'.format(
-            name=item.name,
-            type=item.locality_type)
+        label = '{type}: {name}'.format(name=item.name, type=item.locality_type)
+
+        if item.is_part_of.exists():
+            part_of = ', '.join([part.name for part in item.is_part_of.all()])
+            label = '{label} ({part_of})'.format(label=label, part_of=part_of)
+
+        return label
 
 
 class SiteDescriptorAutocomplete(autocomplete.Select2QuerySetView):
