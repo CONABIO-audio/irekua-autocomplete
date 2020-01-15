@@ -3,7 +3,7 @@ from django.utils.http import urlencode
 from dal import autocomplete
 
 
-def get_autocomplete_widget(model=None, name=None, **kwargs):
+def get_autocomplete_widget(model=None, name=None, multiple=False, attrs=None, **kwargs):
     if name is None:
         name = model._meta.verbose_name_plural.lower().replace(' ', '_')
 
@@ -13,4 +13,12 @@ def get_autocomplete_widget(model=None, name=None, **kwargs):
     if kwargs:
         url = '{}?{}'.format(url, urlencode(kwargs))
 
-    return autocomplete.ModelSelect2(url=url)
+    if attrs is None:
+        attrs = {
+            'style': 'width: 100%;'
+        }
+
+    if multiple:
+        return autocomplete.ModelSelect2Multiple(url=url, attrs=attrs)
+
+    return autocomplete.ModelSelect2(url=url, attrs=attrs)

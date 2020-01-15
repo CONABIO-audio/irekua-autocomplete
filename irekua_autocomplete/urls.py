@@ -35,7 +35,7 @@ urlpatterns = [
         name='terms_autocomplete'),
     path(
         'tags/',
-        views.TagsAutocomplete.as_view(),
+        views.TagsAutocomplete.as_view(create_field="name"),
         name='tags_autocomplete'),
     path(
         'annotation_tools/',
