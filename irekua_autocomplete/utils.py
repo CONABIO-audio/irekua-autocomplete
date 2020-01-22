@@ -5,7 +5,7 @@ from dal import autocomplete
 
 def get_autocomplete_widget(model=None, name=None, multiple=False, attrs=None, **kwargs):
     if name is None:
-        name = model._meta.verbose_name_plural.lower().replace(' ', '_')
+        name = model.__name__.lower().replace(' ', '_')
 
     view_name = 'irekua_autocomplete:{name}_autocomplete'.format(name=name)
     url = reverse(view_name)
