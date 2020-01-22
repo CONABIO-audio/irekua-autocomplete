@@ -20,15 +20,15 @@ urlpatterns = [
     path(
         'collections/',
         views.CollectionAutocomplete.as_view(),
-        name='collection_autocomplete'),
+        name='collections_autocomplete'),
     path(
         'collection_types/',
         views.CollectionTypeAutocomplete.as_view(),
-        name='collection_type_autocomplete'),
+        name='collection_types_autocomplete'),
     path(
         'metacollections/',
         views.MetacollectionAutocomplete.as_view(),
-        name='metacollection_autocomplete'),
+        name='metacollections_autocomplete'),
     path(
         'terms/',
         views.TermsAutocomplete.as_view(),

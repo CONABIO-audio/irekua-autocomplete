@@ -1,3 +1,5 @@
+import re
+
 from django.urls import reverse
 from django.utils.http import urlencode
 from dal import autocomplete
@@ -5,7 +7,7 @@ from dal import autocomplete
 
 def get_autocomplete_widget(model=None, name=None, multiple=False, attrs=None, **kwargs):
     if name is None:
-        name = model.__name__.lower().replace(' ', '_')
+        name = re.sub(r'(?<!^)(?=[A-Z])', '_', model.__name__).lower() + 's'
 
     view_name = 'irekua_autocomplete:{name}_autocomplete'.format(name=name)
     url = reverse(view_name)
