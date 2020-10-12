@@ -3,7 +3,7 @@ from rest_framework.generics import ListAPIView
 
 from django_filters import FilterSet
 
-from irekua_database import models
+from irekua_terms import models
 
 
 class EntailmentSerializer(serializers.Serializer):
